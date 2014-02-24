@@ -1,0 +1,41 @@
+# -*- coding: cp1254 -*-
+import math
+
+#ÇOMÜ Kriptografi 
+#Verilen sayýyý bölecek olduðumuz sayýnýn asal olup olmadýðýný kontrol eder
+def bolenasalmi(x):
+    sayac=0
+    for i in range(1,x+1):
+        if x%i==0:
+            sayac=sayac+1
+    if sayac==2:
+        return 1
+    else:
+        return 0
+
+#Öz Yinelemeli Fonksiyon
+#Verilen sayýnýn 2den kareköküne kadar olan
+#asal sayýlara tam bölünüp bölünmediðini kontrol eder
+def asalmi(sayi,bolen):
+    karekok=math.ceil(math.sqrt(sayi))
+    if bolen==karekok+1:
+        print "Sayý Asal"
+    else:
+        if bolenasalmi(bolen):
+            if sayi%bolen==0:
+                print "Sayý Asal deðil"
+            else:
+                asalmi(sayi,bolen+1)
+        else:
+            asalmi(sayi,bolen+1)
+
+sayi=input("Sorgulamak istediðiniz sayýyý giriniz:")
+asalmi(sayi,2)
+
+
+
+
+
+
+
+    
